@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>All Employees</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Department</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${(employee.department == null) ? 'No' : employee.department.name}"></td>
+                <td><a th:href="${'/employee/' + employee.id}">Show</a></td>
+                <td><a th:href="${'/employee/' + employee.id}">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/employee/create}">Add new employee</a>
+</body>
+</html>

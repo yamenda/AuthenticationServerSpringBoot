@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>${employee.name} Info</title>
+</head>
+<body>
+    <h1>Employee Information</h1>
+    <p th:text="${employee.name}"></p>
+    <p th:text="${employee.email}"></p>
+    <a th:href="@{/employee}">Back</a>
+</body>
+</html>

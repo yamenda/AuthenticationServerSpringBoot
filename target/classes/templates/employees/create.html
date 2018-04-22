@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add New Employee</title>
+</head>
+<body>
+    <h1>Add New Employee</h1>
+    <form th:action="@{/employee/store}" th:object="${employee}" method="POST">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" />
+        <select th:field="*{department}">
+            <option th:each="department : ${departments}"
+                    th:value="${department.id}"
+                    th:text="${department.name}"></option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+    <br />
+    <a th:href="@{/employee}">Back</a>
+</body>
+</html>
